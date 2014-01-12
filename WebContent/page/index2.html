@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+	name="viewport">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<title></title>
+
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+
+<script
+	src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"
+	charset="utf-8"></script>
+
+<!-- 
+<script src="../script/jQuery/jquery-1.9.1.js" charset="utf-8"></script>
+
+<script src="../script/jQuery/jquery.mobile-1.3.2.js" charset="utf-8"></script>
+ -->
+
+<style type="text/css">
+.leo_im_list_hidden {
+	display: none;
+}
+
+.leo_im_list_show {
+	display: block;
+}
+
+.leo-im-list-icon {
+	float: right
+}
+</style>
+
+<script>
+	/*
+	$(function() {
+		$('[data-role="list-divider"]').toggle(
+				function() {
+					$('.' + $(this).attr('data-link')).addClass('show');
+					$(this).children().removeClass('ui-icon-plus').addClass(
+							'ui-icon-minus');
+
+				},
+				function() {
+					$('.' + $(this).attr('data-link')).removeClass('show');
+					$(this).children().removeClass('ui-icon-minus').addClass(
+							'ui-icon-plus');
+				});
+	});
+	 */
+</script>
+
+
+</head>
+
+<body id="index-body">
+
+	<div data-role="page" id="login-page" data-dom-cache="true">
+		<div data-role="header" data-position="fixed">
+			<h1>登录</h1>
+		</div>
+
+		<div data-role="content">
+			<ul id="" data-role="listview" data-filter="true">
+				<li data-role="list-divider" id="friend" name="leo-im-list">朋友
+					<span class="ui-icon ui-icon-plus ui-icon-shadow leo-im-list-icon">&nbsp;</span>
+				</li>
+				<li class="leo_im_list_hidden" name="friend"><a href="index.html">张三</a></li>
+				<li class="leo_im_list_hidden" name="friend"><a href="index.html">李四</a></li>
+				<li class="leo_im_list_hidden" name="friend"><a href="index.html">王五</a></li>
+				<li class="leo_im_list_hidden" name="friend"><a href="index.html">赵六</a></li>
+
+				<li data-role="list-divider" id="colleague" name="leo-im-list">同事
+					<span class="ui-icon ui-icon-plus ui-icon-shadow leo-im-list-icon">&nbsp;</span>
+				</li>
+				<li class="leo_im_list_hidden" name="colleague"><a href="index.html">刘一</a></li>
+				<li class="leo_im_list_hidden" name="colleague"><a href="index.html">陈二</a></li>
+				<li class="leo_im_list_hidden" name="colleague"><a href="index.html">孙七</a></li>
+				<li class="leo_im_list_hidden" name="colleague"><a href="index.html">周八</a></li>
+			</ul>
+
+		</div>
+		<!-- end of jqm content -->
+
+	</div>
+	<!-- end of jqm page -->
+
+	<script>
+		(function() {
+			var leoShow = '0';
+			var leoShows = {
+					friend : '0',
+					colleague : '0'
+			};
+			$('[name=leo-im-list]')
+					.on(
+							'click',
+							function() {
+								if (leoShows[this.id] == '0') {
+									
+									$('[name=' + $(this).attr('id') + ']').addClass('leo_im_list_show');
+									//$('.' + $(this).attr('data-link')).addClass('show');
+									//$('#' + this.id).addClass('show');
+									$(this).children().removeClass(
+											'ui-icon-plus').addClass(
+											'ui-icon-minus');
+									leoShows[this.id] = '1';
+								} else {
+									$('[name=' + $(this).attr('id') + ']').removeClass('leo_im_list_show');
+									//$('.' + $(this).attr('data-link')).removeClass('show');
+									$(this).children().removeClass(
+											'ui-icon-minus').addClass(
+											'ui-icon-plus');
+									leoShows[this.id] = '0';
+								}
+							});
+		})();
+	</script>
+
+</body>
+</html>

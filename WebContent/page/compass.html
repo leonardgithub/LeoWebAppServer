@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="width=device-width, minimum-scale=1, maximum-scale=1"
+	name="viewport" charset="UTF-8">
+<title>PhoneGap</title>
+
+</head>
+<body>
+	<div data-role="page" id="compass-page" data-dom-cache="true">
+		<div data-role="header" data-position="fixed">
+			<h1>Compass</h1>
+		</div>
+
+		<table>
+			<tr>
+				<td>Compass Heading</td>
+				<td>
+					<div id="compassHeading">....</div>
+				</td>
+				<td>Degrees</td>
+			</tr>
+		</table>
+
+		<img id="compass" src="../img/compass.png"
+			style="width: 300px; height: 300px; margin-left: auto; marginright: auto; auto; display: block">
+
+		<div data-role="footer" data-position="fixed" data-id="data-footer"
+			class="tabbar" id="compass-footer" data-tap-toggle="false"></div>
+
+	<script type="text/javascript" src="../script/leoCompass.js"
+		charset="utf-8"></script>
+		<script type="text/javascript">
+			(function() {
+				leo.util.log('ready in compass.html');
+				var id = 'compass-footer';
+				$("#" + id).load('footer.html', function() {
+					$(this).trigger("create");
+				});
+				leoCompass.init();
+				//alert($('body').html());
+				//$('body').append('<textarea id="myTextArea"></textarea>');  
+				//$.mobile.loadPage('index.html');
+			})();
+		</script>
+	</div>
+</body>
+</html>
+

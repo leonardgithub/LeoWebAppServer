@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<title>PhoneGap</title>
+</head>
+<body>
+<div data-role="header" data-position="inline">
+<h1>Contacts</h1>
+</div>
+
+<ul id="contactList" data-role="listview"></ul>
+
+<div data-role="footer" data-position="fixed">
+<div data-role="navbar">
+<ul>
+<li><a href="index.html">Home</a></li>
+
+<li><a href="map.html">Map</a></li>
+
+<li><a href="compass.html">Compass</a></li>
+
+<li><a href="list.html">List</a></li>
+
+<li><a href="contacts.html" class="ui-btn-active">Contacts</a></li>
+</ul>
+</div>
+</div>
+
+<script type="text/javascript" src="../script/contacts.js">
+</script>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+        	leo.util.log(window.onContactsLoad);
+            onContactsLoad();
+        }
+    
+</script>
+</body>
+</html>
+

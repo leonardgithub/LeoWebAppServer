@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title></title>
+
+</head>
+<body>
+<div data-role="page" id="im_add_friend" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<h1>验证身份</h1>
+        <a href="#" onclick="leo.imFriend.sendAddFri(leo.util.getById('leoAddFriMsg').value);return false" class="ui-btn-right">发送</a>
+	</div>
+
+	<div data-role="content">
+		验证消息：
+		<textarea id="leoAddFriMsg" rows="" cols=""></textarea>
+		<a data-rel="back" id="leoAddFriMsgBack" data-role="button" style="display:none"></a>
+	</div>
+	<!-- end of content -->
+</div>
+<!-- end of jqm page -->
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>PhoneGap</title>
+</head>
+<body>
+	<div data-role="page" id="contact-page" data-dom-cache="true">
+		<div data-role="header" data-position="inline">
+			<h1>Contacts</h1>
+		</div>
+
+		<ul id="contactList" data-role="listview"></ul>
+
+		<div data-role="footer" data-position="fixed" data-id="data-footer"
+			class="tabbar" id="contact-footer"></div>
+
+		<script type="text/javascript">
+			/*
+			$(document).on('pageinit', function(event) {
+			    alert('pageinit in contacts.html');
+			});
+			 */
+			$(document).ready(function() {
+				leo.util.log('ready in contacts.html');
+				var footerId = 'contact-footer';
+				$("#" + footerId).load('footer.html', function() {
+					$(this).trigger("create");
+				});
+				leoContact.onContactsLoad();
+			});
+		</script>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- 
+<meta>
+ -->
+<!-- not to let the font too small -->
+<meta
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+	name="viewport">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title></title>
+
+</head>
+
+<style>
+/*
+body{
+	-webkit-backface-visibility: hidden; 
+}
+*/
+</style>
+
+	<div data-role="page" id="pbs_upload_page" data-dom-cache="true">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<h1>怕不晒</h1>
+		</div>
+		<div data-role="content">
+			<form id="pbs_img_form" method="post">
+				<div data-role="fieldcontain">
+					图片 <input type="file" name="pbs_img" id="pbs_img"
+						onchange="pbs.previewImg(this)" />
+				</div>
+				<div data-role="fieldcontain">
+					<input type="button" name="" id="" value="上传图片"
+						onclick="pbs.sendImg()" />
+				</div>
+				<div data-role="fieldcontain">
+					<input type="button" name="" id="" value="testChannel"
+						onclick="pbs.testChannel()" />
+				</div>
+				<div data-role="fieldcontain">
+					<input type="button" name="" id="" value="use localhost"
+						onclick="pbs.doConfig('1');" />
+				</div>
+				<div data-role="fieldcontain">
+					<input type="button" name="" id="" value="use SAE server"
+						onclick="pbs.doConfig('2');" />
+				</div>
+				<div data-role="fieldcontain">
+					标签1<input id="pbs_tag1" value="" />
+				</div>
+				<div data-role="fieldcontain">
+					标签2<input id="pbs_tag2" value="" />
+				</div>
+				<div data-role="fieldcontain">
+					标签3<input id="pbs_tag3" value="" />
+				</div>
+				<div data-role="fieldcontain">
+					标签4<input id="pbs_tag4" value="" />
+				</div>
+			</form>
+			<input type="" name="" id="" value="show img"
+				onclick="document.getElementById('storageImg').src=this.value" /> <br />
+			<img id="storageImg" style="width: 200px; height: 200px"></img>
+		</div>
+		<!-- end of jqm content -->		
+		
+		<div data-role="footer" data-position="fixed" data-id="pbs_footer_data_id"
+			class="tabbar" id="pbs_upload_footer_id" data-tap-toggle="false">
+		</div>
+		
+		<script>
+			if (!window.pbs) {
+				window.pbs = {};
+			}
+
+			pbs.doConfig = function(flag) {
+				switch (flag) {
+				case "1":
+					pbs.server = "http://localhost:8080/LeoWebAppServer";
+					break;
+				case "2":
+					pbs.server = "http://1.pabushai.sinaapp.com";
+					break;
+				default:
+				}
+			}
+			pbs.doConfig('1');
+
+			pbs.testObj = {};
+			pbs.testObj.s = {
+				action : 'pbsImgAction',
+				method : 'savePbsImg'
+			};
+			pbs.testObj.a = {
+				imgs : [ {
+					tag1 : 'a1',
+					tag2 : 'a2',
+					tag3 : 'a3',
+					tag4 : 'a4'
+				} ]
+			};
+
+			var ret = $.param({
+				p : JSON.stringify(pbs.testObj)
+			});
+
+			pbs.sendImg = function() {
+				var opt = {
+					//data : {
+					//	p : JSON.stringify(pbs.testObj)
+					//},
+					type : 'post',
+					//url : "http://192.168.1.111:8080/LeoWebAppServer/leo/sendImg",
+					url : pbs.server + '/leo/sendImg?' + ret,
+					success : function(e) {
+						document.getElementById('storageImg').src = e;
+					},
+					// data: $(obj.form).serialize(),
+					//contentType : "multipart/form-data",
+					// data : file,
+					error : function() {
+						alert('error');
+					}
+				};
+				$('#pbs_img_form').ajaxSubmit(opt);
+			}
+
+			pbs.previewImg = function(inputObj) {
+				if(inputObj && inputObj.files){
+					var file = inputObj.files[0];
+					leo.util.previewImg(file, 'storageImg');
+				}
+			}
+
+			;
+			(function() {
+				var id = 'pbs_upload_footer_id';
+				$("#" + id).load('pbs_footer.html', function() {
+					$(this).trigger("create");
+				});
+			})();
+		</script>
+	</div>
+	<!-- end of jqm page -->
+</html>

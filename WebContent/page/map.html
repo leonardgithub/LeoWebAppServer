@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="width=device-width, minimum-scale=1, maximum-scale=1"
+	name="viewport" charset="UTF-8">
+<title>PhoneGap</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+</head>
+<body>
+	<div data-role="page" id="map-page">
+		------------------Map page------------------
+
+		<div id="map_canvas" style="width: 300px; height: 300px"></div>
+
+		<div data-role="footer" data-position="fixed" id="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+
+					<li><a href="map.html" class="ui-btn-active">Map</a></li>
+
+					<li><a href="about.html">About</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		leo.util.log('map html: ' + onMapLoad);
+			function onMapLoad() {
+				if (leoInit.getIsConnected()) {
+					// load the google api
+					var fileref = document.createElement('script');
+					fileref.setAttribute("type", "text/javascript");
+					fileref.setAttribute("src",
+							"http://maps.googleapis.com/maps/api/js?sensor=true&callback="
+									+ "getGeolocation");
+					document.getElementsByTagName("head")[0]
+							.appendChild(fileref);
+				} else {
+					alert("Must be connected to the Internet");
+				}
+			}
+			function getGeolocation() {
+				// get the user's gps coordinates and display map
+				var options = {
+					maximumAge : 3000,
+					timeout : 5000,
+					enableHighAccuracy : true
+				};
+				navigator.geolocation.getCurrentPosition(loadMap, geoError,
+						options);
+			}
+			function loadMap(position) {
+				var latlng = new google.maps.LatLng(position.coords.latitude,
+						position.coords.longitude);
+				var myOptions = {
+					zoom : 8,
+					center : latlng,
+					mapTypeId : google.maps.MapTypeId.ROADMAP
+				};
+				var mapObj = document.getElementById("map_canvas");
+				var map = new google.maps.Map(mapObj, myOptions);
+				var marker = new google.maps.Marker({
+					position : latlng,
+					map : map,
+					title : "You"
+				});
+			}
+			function geoError(error) {
+				alert('code: ' + error.code + '\n' + 'message: '
+						+ error.message + '\n');
+			}
+		</script>
+	</div>
+
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
+

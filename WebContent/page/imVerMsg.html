@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<div data-role="page" id="imVerMsg" data-dom-cache="true" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<h1>验证消息</h1>
+	</div>
+	<div data-role="content">
+		<div id="imVerMsgWra" class="leo_wrapper">
+			<!-- scroller must be children[0] of wrapper -->
+			<div class="leo_scroller">
+				<div id="imVerMsgPullDown" class="leo_pullDown" >
+					<span class="leo_pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+				</div>
+				<ul id="imVerMsgList" data-role="listview" data-inset="false" data-split-icon="plus" style="margin:0px">
+				</ul>
+				<div id="imVerMsgPullUp" class="leo_pullUp">
+					<span class="leo_pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end of content -->
+	<script>
+		!function() {
+			leo.leoMsg.initVerMsgScroll();
+		}();
+	</script>
+</div>
+<!-- end of jqm page -->
+</body>
+</html>

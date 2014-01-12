@@ -1,0 +1,38 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+	<div data-role="page" id="leoMsgPage" data-dom-cache="true">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<h1>消息</h1>
+		</div>
+		<div data-role="content">
+			<div id="leoMsgWrapper" class="leo_wrapper" style="top:0px">
+				<div class="leo_scroller">
+					<div id="leoMsgPullDown" class="leo_pullDown">
+						<span class="leo_pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+					</div>
+					<ul id="leoMsgThelist" data-role="listview" data-inset="false" data-split-icon="plus" style="margin:0px">
+					</ul>
+					<div id="leoMsgPullUp" class="leo_pullUp">
+						<span class="leo_pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-id="data-footer" class="tabbar" id="leoMsgFooter" data-tap-toggle="false">
+		</div>
+		<script type="text/javascript">
+			$("#leoMsgFooter").load('footer.html', function() {
+				$(this).trigger("create");
+			});
+			leo.leoMsg.initMsgScroll();
+			$.mobile.loadPage('imVerMsg.html');
+			//TODO: load html and init scroll for leoMsgSugCnt, leoMsgGrpCnt, etc
+		</script>
+	</div><!-- end of jqm page -->
+</body>
+</html>
+

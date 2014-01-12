@@ -1,0 +1,38 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="width=device-width, minimum-scale=1, maximum-scale=1"
+	name="viewport" charset="UTF-8">
+<title>PhoneGap</title>
+
+</head>
+<body>
+	<div data-role="page" id="audioVideo-page" data-dom-cache="true">
+		<div data-role="header" data-position="fixed">
+			<h1>Audio and Video</h1>
+		</div>
+
+		<input type="button" value="Capture Audio" onclick="captureAudio()" />
+		<input type="button" value="Capture Video" onclick="captureVideo()" />
+
+
+		<div data-role="footer" data-position="fixed" data-id="data-footer"
+			class="tabbar" id="audioVideo-footer">
+		</div>
+
+		<script type="text/javascript">
+			//$(document).ready(function() {
+			//});
+			
+			;(function(){
+				leo.util.log('ready in compass.html');
+				var id = 'audioVideo-footer';
+				$("#" + id).load('footer.html', function() {
+					$(this).trigger("create");
+				});
+			})();
+		</script>
+	</div>
+</body>
+</html>
+

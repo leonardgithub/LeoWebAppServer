@@ -1,0 +1,38 @@
+
+
+------------------------------------------------------
+<change config>
+1. 
+DaoConfig.scala
+
+object DaoConfig {
+  val instance: DaoConfig =
+    "2" match {
+      case "1" => new LocalExlTableNames()
+      case "2" => new SaeMySQLTableNames()
+      case _ => null
+    }
+}
+  
+  
+2. 
+clientConfig.js
+serverinfo
+e.g. leo.config.strategy = leo.config.localWebServerInfo;
+
+3.
+LeoWebConfig.java
+------------------------------------------------------
+
+<promotion to SAE env>
+web.xml
+comment leo.web.LeoSocketServlet(SAE not support tomcat), leo.web.LeoSocketServletJetty7.
+comment SaeChannelUrlMimicCreator
+
+or 
+LeoSocketServlet.java
+//@WebServlet("/servlet/sendMsg")
+
+export leoxxx.jar to lib folder.
+export xxx.war and commit it to svn server.
+------------------------------------------------------

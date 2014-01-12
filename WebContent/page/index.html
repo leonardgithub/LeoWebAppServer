@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>请登录</title>
+</head>
+<style>
+/*
+body{
+	-webkit-backface-visibility: hidden; 
+}
+*/
+</style>
+<body id="index-body">
+	<div data-role="page" id="login-page" data-dom-cache="true">
+		<!-- 
+		<script src="http://channel.sinaapp.com/api.js"></script>
+		-->
+		<script src="../script/socket/saeChannel.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+		<!-- 
+		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
+		-->
+		<!-- 
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+		-->
+		<script src="../script/jQuery/jquery-1.9.1.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).on('mobileinit', function() { //must be bound after jQuery.js and before jqm.js
+				//$.mobile.allowCrossDomainPages = true; 
+				$.mobile.page.prototype.options.headerTheme = "b";
+				$.mobile.page.prototype.options.footerTheme = "b";
+				//$.mobile.page.prototype.options.contentTheme = "b";
+				//$.mobile.page.prototype.options.theme = "b";
+				$.mobile.page.prototype.options.backBtnText = "返回";
+				$.mobile.defaultPageTransition = 'none';
+				//$.mobile.ajaxLinksEnabled = false;
+				//$.mobile.loadingMessage = "请稍候";
+				//$.mobile.pageLoadErrorMessage = '对不起，操作出错，请重试';
+				//$.mobile.ajaxLinksEnabled = 'false';
+				//$.mobile.loadingMessage = "why isn't this working";
+				//$.mobile.metaViewportContent = 'width=device-width';
+				//$.mobile.page.prototype.options.domCache = true;
+			});
+		</script>
+		<!-- 
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js" charset="utf-8"></script>
+		-->
+		<script src="../script/jQuery/jquery.mobile-1.3.2.js" charset="utf-8"></script>
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<h1>请登录</h1>
+		</div>
+		<div data-role="content">
+			<a href="#" id='change-page-btn' data-role="button" style="display:none"></a>
+			<a href="imCommonAlert.html" id='imCommonAlert' data-rel="dialog" data-role="button" style="display:none"></a>
+			<!--  <a href="#" id="login_back_btn" data-rel="back" data-role="button" style="display:none"></a>
+			-->
+			<input type="hidden" id='leoImLoginUrl' style="display:none"/>
+			<div data-role="fieldcontain">
+				账号 <input name="num" id="num" data-clear-btn="true"  maxlength="15"/>
+			</div>
+			<div data-role="fieldcontain">
+				密码 <input type="password" name="pwd" id="pwd" data-clear-btn="true"  maxlength="15"/>
+			</div>
+			<!-- <input type="button" value="登录" onclick="leo.leoChannel.loginServer($('#num').val(), $('#pwd').val(), true)" />
+			 -->
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#" data-role="button" data-transition="none" data-theme="b" onclick="leo.leoChannel.loginServer($('#num').val(), $('#pwd').val(), true)">登录</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="register.html" data-role="button" data-transition="none">注册</a>
+				</div>
+			</fieldset>
+			<fieldset class="ui-grid-b">
+				<div class="ui-block-a">
+					<input type="button" value="登录测试账号A" onclick="leo.fulfill1()" data-theme="a" /> 
+				</div>
+				<div class="ui-block-b">
+					<input type="button" value="登录测试账号B" onclick="leo.fulfill2()" data-theme="a" /> 
+				</div>
+				<div class="ui-block-c">
+					<input type="button" value="登录测试账号C" onclick="leo.fulfill3()" data-theme="a" /> 
+				</div>
+			</fieldset>
+		</div>
+		<!-- end of jqm content -->
+		<script>
+		</script>
+		<div id="leoIndexScript"></div>
+		<script type="text/javascript" src="../script/leoCommon.js" charset="utf-8"></script>
+		<!-- 
+		<script type="text/javascript" src="../script/phonegap/cordova-2.9.0.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/leoContact.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/audioVideo.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/notification.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/file.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/socket/socket.io.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/socket/leowebsocket.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/socket/leowebsocket_upload.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/socket/leowebsocket_upload1.js" charset="utf-8"></script>
+		-->
+		<script type="text/javascript" src="../script/scroll/iscroll.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/leoScroll.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientAction/clientActionHandlerMap.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientAction/clientActionChannel.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientAction/clientActionLogin.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientAction/clientActionFriend.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientAction/clientActionMsg.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientAction/clientActionSetting.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientView/clientView.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../script/clientModel/clientConfig.js" charset="utf-8"></script>
+		<script>
+			// log login page url
+			document.getElementById('leoImLoginUrl').value = location.href;
+			
+			// bind pageinit/create/show/hide etc after importing jqm.js
+			window.leo = window.leo || {}; 
+			!function() {
+				// note: order is ready -> pagecreate -> pageinit -> pageshow
+				$("#login-page").on('pagebeforeshow', function(event) {
+					if (!leo.leoLogin.canGoToLoginPage) {
+						leo.imFriend.redirectPage("main.html");
+					}
+				});
+				$(document).on('pagebeforehide', "#imCommonAlert", function(event) {
+					leo.util.alertCallback && leo.util.alertCallback();
+				});
+				// ---------disable F5 event, begin
+				// TODO: disable more events
+				$(document).on('keydown', function(event) {
+					var e = event || window.event;
+					if (e.keyCode == 116) {
+						e.keyCode = 0; //stop event for ie(6)
+						return false; //stop event for chrome
+					} else if (e.altKey && (e.keyCode == 37 || e.keyCode == 39)) {
+						return false;
+					}
+				});
+				// ---------disable F5 event, end
+				// ---------for iScroll, begin
+				$(document).on('touchmove', function(e){
+					e && e.originalEvent && e.originalEvent.preventDefault();
+				});
+				// ---------for iScroll, end
+				// ---------import js for websql or indexedDB, begin
+				var indDb = window.indexedDB || window.webkitIndexedDB
+						|| window.mozIndexedDB || window.msIndexedDB;
+				// note: order is $.ready -> dynamic js loading
+				// TODO: remove false after indexedDB is done
+				if (indDb && false) {
+					leo.util.loadJs('leoIndexScript',
+							'../script/clientDao/clientDaoIndDb.js');
+				} else if (window.openDatabase) {
+					leo.util.loadJs('leoIndexScript',
+							'../script/clientDao/clientDaoWebSql.js');
+				}
+				// ---------import js for websql or indexedDB, end
+			}();
+			// ---------for test account login, start
+			leo.fulfill1 = function() {
+				$('#num').val("11223344");
+				$('#pwd').val('lixiangpwd');
+				leo.leoChannel.loginServer($('#num').val(), $('#pwd').val(),
+						true);
+			}
+			leo.fulfill2 = function() {
+				$('#num').val("666");
+				$('#pwd').val('leonardpwd');
+				leo.leoChannel.loginServer($('#num').val(), $('#pwd').val(),
+						true);
+			}
+			leo.fulfill3 = function() {
+				$('#num').val("111222333");
+				$('#pwd').val('leonardpwd');
+				leo.leoChannel.loginServer($('#num').val(), $('#pwd').val(),
+						true);
+			}
+			// ---------for test account login, end
+			function doAfterPhoneGapReady() {
+				leo.util.log('doAfterPhoneGapReady in index.html');
+			}
+		</script>
+	</div>
+	<!-- end of jqm page -->
+</body>
+</html>

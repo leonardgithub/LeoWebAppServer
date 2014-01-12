@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>LeoWebAppServer</display-name>
+
+	<!-- 
+	<servlet>
+		<servlet-name>LeoSocketSocket</servlet-name>
+		<servlet-class>leo.web.tomcat.LeoSocketServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LeoSocketSocket</servlet-name>
+		<url-pattern>/servlet/sendMsg</url-pattern>
+	</servlet-mapping>
+  	   
+  	   
+	<servlet>
+		<servlet-name>LeoCometTest</servlet-name>
+		<servlet-class>leo.web.tomcat.LeoCometServlet</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LeoCometTest</servlet-name>
+		<url-pattern>/servlet/leoComet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PbsServlet</servlet-name>
+		<servlet-class>leo.web.PbsWebController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PbsServlet</servlet-name>
+		<url-pattern>/pbs/do</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>sendImg</servlet-name>
+		<servlet-class>leo.web.SendImg</servlet-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>useStorage</param-name>
+			<param-value>true</param-value>
+			<description>deprecated</description>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sendImg</servlet-name>
+		<url-pattern>/leo/sendImg</url-pattern>
+	</servlet-mapping>
+	-->
+	
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>leo.web.RegisterServlet</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/leo/register</url-pattern>
+	</servlet-mapping>
+
+	<!-- SAE mimic, begin -->
+	<servlet>
+		<servlet-name>SaeChannelUrlMimicCreator</servlet-name>
+		<servlet-class>leo.web.saeChannel.SaeChannelUrlMimicCreator</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaeChannelUrlMimicCreator</servlet-name>
+		<url-pattern>/leo/getSaeChannelMimicUrl</url-pattern>
+	</servlet-mapping>
+	<!-- SAE mimic, end -->
+
+	<!-- SAE, begin -->
+	<servlet>
+		<servlet-name>SaeChannelUrlCreator</servlet-name>
+		<servlet-class>leo.web.saeChannel.SaeChannelUrlCreator</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaeChannelUrlCreator</servlet-name>
+		<url-pattern>/leo/getSaeChannelUrl</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SaeChannelConnected</servlet-name>
+		<servlet-class>leo.web.saeChannel.SaeChannelConnected</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaeChannelConnected</servlet-name>
+		<url-pattern>/_sae/channel/connected</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SaeChannelDisconnected</servlet-name>
+		<servlet-class>leo.web.saeChannel.SaeChannelDisconnected</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaeChannelDisconnected</servlet-name>
+		<url-pattern>/_sae/channel/disconnected</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SaeChannelMessage</servlet-name>
+		<servlet-class>leo.web.saeChannel.SaeChannelMessage</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaeChannelMessage</servlet-name>
+		<url-pattern>/_sae/channel/message</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SaeChannelSendFromClient</servlet-name>
+		<servlet-class>leo.web.saeChannel.SaeChannelSendFromClient</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaeChannelSendFromClient</servlet-name>
+		<url-pattern>/leo/sendFromClient</url-pattern>
+	</servlet-mapping>
+	<!-- SAE, end -->
+
+	<welcome-file-list>
+		<welcome-file>page/index.html</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

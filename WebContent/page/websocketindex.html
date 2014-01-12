@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>websocket-android-phonegap</title>
+<script type="text/javascript" charset="utf-8"
+	src="js/phonegap/phonegap-1.4.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="../script/leowebsocket.js"></script>
+</head>
+<body>
+	WebSocket test page!
+	<pre>
+	<!-- 
+[code]
+	// new socket
+	var socket = new WebSocket('ws://122.168.196.27:8081/');
+			
+	// push a message after the connection is established.
+	socket.onopen = function() {
+		socket.send('Hello World')
+	};
+			
+	// alerts message pushed from server
+	socket.onmessage = function(msg) {
+		alert(JSON.stringify(msg));
+	};
+			
+	// alert close event
+	socket.onclose = function() {
+		alert('closed');
+	};
+
+[/code]
+ -->
+  </pre>
+</body>
+
+<script type="text/javascript" charset="utf-8">
+	function leoalert() {
+		//window.alert.apply(window, arguments);
+	}
+	
+	var appName = "/LeoWebServer"; // added by leonard
+	var webServletPath = "/servlet/sendMsg";// added by leonard
+	var url = "ws://192.168.1.111:8080" + appName + webServletPath;
+	var url = "ws://192.168.1.111:8880/websocket/servlet/sendMsg";
+	var url = "ws://192.168.1.111:8080/LeoWebServer/servlet/sendMsg";
+	//url = 'ws://122.168.196.27:8081/';
+	alert(url);
+	// new socket
+	var socket = new WebSocket(url);
+
+	// push a message after the connection is established.
+	socket.onopen = function() {
+		leoalert('socket.onopen');
+	};
+
+	// alerts message pushed from server
+	socket.onmessage = function(msg) {
+		alert('onmessage: ' + msg.data);
+		//alert(JSON.stringify(msg));
+	};
+
+	// alert close event
+	socket.onclose = function() {
+		leoalert('closed');
+	};
+	socket.onerror = function(p) {
+		if(p){
+			for(var i in p){
+				leoalert(i + ": " + p[i]);
+			}
+		}
+		leoalert('socket.onerror');
+	};
+	// now, close the connection after 10 secons. (funny!)
+	/* 	setInterval(function() {
+	 socket.close();
+	 }, 10000); */
+	 
+	 function sendTxt(){
+		 var textObj = document.getElementById('inputtext');
+		 if(textObj.value != ""){
+			 socket.send(textObj.value);
+			 textObj.value = "";
+		 }
+	 }
+	 
+</script>
+	<textarea rows="8" id="inputtext">
+		
+	</textarea>
+	<input type="button" width="10px" onclick="sendTxt()"/>
+</html>

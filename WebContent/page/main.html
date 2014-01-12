@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title></title>
+</head>
+<body>
+	<div data-role="page" id="leoImMainPage" data-dom-cache="true">
+		<style type="text/css">
+			/* for collapsible list, begin, but must be imported after jqm.css! why?*/
+			.leo_im_list_hidden {
+				display: none;
+			}
+			.leo_im_list_show {
+				display: block;
+			}
+			.leo-im-list-icon {
+				float: right;
+			}
+			/* for collapsible list, end*/		
+			/* for im_plus list, begin*/
+			.leo_im_plus_hidden {
+				display: none;
+			}
+			.leo_im_plus_show {
+				display: block;
+			}
+			/* for im_plus list, end*/
+			/* for im common, begin*/
+			.leo_im_shown{
+				display: block;
+			}
+			.leo_im_hidden{
+				display: none;
+			}
+			/* for im common, end*/
+			.leoImMsg {
+				word-wrap: break-word;
+			}
+			/* for common scroll, begin*/
+			.leo_wrapper {
+				position:absolute; z-index:10;
+				top:70px; 
+				bottom:48px; 
+				left:0px;
+				width:99%;
+				/*background:#aaa;*/
+				overflow:auto;
+			}
+			.leo_scroller {
+				position:absolute; z-index:10;
+				/*	-webkit-touch-callout:none;*/
+				-webkit-tap-highlight-color:rgba(0,0,0,0);
+				width:100%;
+				padding:0;
+			}
+			/*
+			.leo_a, .leo_scroller a{
+				overflow:inherit
+				temp method to fix position shifting of first item of listview
+			}			
+			*/
+			.leo_pullDown, .leo_pullUp {
+				background:#fff;
+				height:40px;
+				line-height:40px;
+				padding:5px 10px;
+				border-bottom:1px solid #ccc;
+				font-weight:bold;
+				font-size:14px;
+				/*color:#888;*/
+			}
+			.leo_pullDown .leo_pullDownIcon, .leo_pullUp .leo_pullUpIcon  {
+				display:block; float:left;
+				width:40px; height:40px;
+				background:url(pull-icon@2x.png) 0 0 no-repeat;
+				-webkit-background-size:40px 80px; background-size:40px 80px;
+				-webkit-transition-property:-webkit-transform;
+				-webkit-transition-duration:250ms;	
+			}
+			.leo_pullDown .leo_pullDownIcon {
+				-webkit-transform:rotate(0deg) translateZ(0);
+			}
+			.leo_pullUp .leo_pullUpIcon  {
+				-webkit-transform:rotate(-180deg) translateZ(0);
+			}
+			.leo_pullDown.flip .leo_pullDownIcon {
+				-webkit-transform:rotate(-180deg) translateZ(0);
+			}
+			.leo_pullUp.flip .leo_pullUpIcon {
+				-webkit-transform:rotate(0deg) translateZ(0);
+			}
+			.leo_pullDown.loading .leo_pullDownIcon, .leo_pullUp.loading .leo_pullUpIcon {
+				background-position:0 100%;
+				-webkit-transform:rotate(0deg) translateZ(0);
+				-webkit-transition-duration:0ms;
+				-webkit-animation-name:loading;
+				-webkit-animation-duration:2s;
+				-webkit-animation-iteration-count:infinite;
+				-webkit-animation-timing-function:linear;
+			}
+			@-webkit-keyframes loading {
+				from { -webkit-transform:rotate(0deg) translateZ(0); }
+				to { -webkit-transform:rotate(360deg) translateZ(0); }
+			}
+			/* for common scroll, end*/
+			/*override jqm*/
+			.ui-li-divider {
+				height: 30px;
+				line-height: 30px;
+				font-size: 15px;
+			}
+			.ui-listview-filter {
+				margin: 0px 0px 0px 0px;
+			}
+		</style>
+
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<h1>好友列表</h1>
+        	<a href="im_search.html" class="ui-btn-right">查找联系人</a>
+		</div>
+		<div data-role="content">
+			<div id="imMainWra" class="leo_wrapper" style="top:0px">
+				<!-- scroller must be the children[0] of wrapper -->
+				<!--  -->
+				<div class="leo_scroller">
+					<div id="imMainPullDown" class="leo_pullDown">
+						<span class="leo_pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+					</div>
+					<div>
+						<ul id="imMainList" data-filter-placeholder="搜索..." data-inset="false" data-role="listview" data-filter="true" style="margin:0px">
+						</ul>
+					</div>
+					<div id="imMainPullUp" class="leo_pullUp">
+						<span class="leo_pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+					</div>
+				</div><!-- end of scroller -->
+			</div><!-- end of wrapper -->
+		
+			<!-- 
+			<a href="#" data-role="button"
+				onclick='window.open("http://www.baidu.com", "_system")'>百度1</a> <a
+				href="http://www.baidu.com" data-role="button">百度2</a> <a
+				href="http://192.168.1.102:8080/TestScroll/iScroll/examples/pull-to-refresh"
+				data-role="button">全部联系人WEB</a> <a href="contacts_all_scroll.html"
+				data-role="button">全部联系人LOCAL</a>
+			<ul id="mainListView" data-role="listview"></ul>
+			<input type="file" id="mainFileId" onchange="window.leo.leoLoader.showImg('mainFileId', 'mainImgId')"/>
+			<input type="button" onclick="window.leo.leoLoader.upload('mainFileId')" value="发送"/>
+			<input type="button" onclick="leo.leoLoader.getCamera()" value="拍照"/>
+			<img id="mainImgId" style="width: 60px; height: 60px" />
+			 -->
+		</div>
+		<!-- end of content -->
+		<div data-role="footer" data-position="fixed" data-id="data-footer"
+			class="tabbar" id="imMainFoot" data-tap-toggle="false">
+		</div>
+		<script>
+			$("#imMainFoot").load('footer.html', function() {
+				$(this).trigger("create");
+			});
+			leo.leoMsg = new leo.LeoMsg();	//for msg module
+			leo.imSetting = new leo.ImSetting();	//for setting module
+			leo.imFriend.initImMainScroll();
+			leo.imFriend.getLists();	//get friend list
+			leo.leoDao.init(leo.leoChannel.num);	//open and init DB
+			leo.imFriend.bindImListEvents();
+			$.mobile.loadPage('leoMsg.html');	//load msg page
+			$.mobile.loadPage('imSetting.html');//load setting page
+		</script>
+	</div>
+	<!-- end of jqm page -->
+</body>
+</html>
+

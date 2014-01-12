@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="width=device-width, minimum-scale=1, maximum-scale=1"
+	name="viewport" charset="UTF-8">
+<title>PhoneGap</title>
+
+</head>
+<body>
+	<div data-role="page" id="save-file-page" data-dom-cache="true" data-add-back-btn="true">
+
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<a href="index.html" data-icon="delete">Cancel</a>
+			<h1>保存文件</h1>
+			<a onClick="return leo.file.saveNotes()" href="#" data-icon="check"
+				data-theme="b">Save</a>
+		</div>
+		<form action="notes.html" method="post">
+			<textarea name="notes" rows="30" cols="10"></textarea>
+		</form>
+
+		<div data-role="footer" data-position="fixed" data-id="data-footer"
+			class="tabbar" id="save-file-footer" data-tap-toggle="false"></div>
+
+		<script type="text/javascript">
+			leo.file.onNotesLoad();
+		</script>
+	</div>
+</body>
+</html>
+

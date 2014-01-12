@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="width=device-width, minimum-scale=1, maximum-scale=1"
+	name="viewport" charset="UTF-8">
+<title>PhoneGap</title>
+</head>
+<body>
+	<div data-role="page" id="contact-page" data-dom-cache="true">
+		<div data-role="header" data-position="fixed">
+			<h1>Contacts</h1>
+
+			<a href="contacts_create.html" data-icon="save" data-theme="b">Add</a>
+		</div>
+
+		<div data-role="content">
+			<a href="contacts_all.html" data-role="button">view all</a> <a
+				href="contacts_create.html" data-role="button">create a contact</a>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-id="data-footer"
+			class="tabbar" id="contact-footer" data-tap-toggle="false"></div>
+
+		<script type="text/javascript">
+			$("#contact-footer").load('footer.html', function() {
+				$(this).trigger("create");
+			});
+		</script>
+	</div>
+</body>
+</html>
+

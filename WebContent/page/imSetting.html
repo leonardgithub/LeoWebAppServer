@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>设置</title>
+</head>
+<body>
+	<div data-role="page" id="leoImSettingPage" data-dom-cache="true">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<h1>设置</h1>
+		</div>
+		<div data-role="content">
+			<a href="ImLogoutConfirm.html" data-role="button" data-rel="dialog" data-transition="pop">退出登录</a>
+			<!-- 
+			<a href="audioVideo.html" data-role="button">音视频</a>
+			<a href="notification.html" data-role="button">通知</a>
+			<a href="save_file.html" data-role="button">文件操作</a>
+			<a href="http://192.168.1.111:8080/TestScroll/iScroll/examples/pull-to-refresh" data-role="button">全部联系人WEB</a>
+			<a href="contacts_all_scroll.html" data-role="button">全部联系人LOCAL</a>
+			<a href="indexScroll.html" data-role="button">全部联系人LOCAL OK</a>
+			<a href="indexTest.html" data-role="button">indexTest</a>
+			<a href="leoShake.html" data-role="button">leoShake.html</a>
+			 -->
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-id="data-footer"
+			class="tabbar" id="others-footer" data-tap-toggle="false"></div>
+
+		<script type="text/javascript">
+			$("#others-footer").load('footer.html', function() {
+				$(this).trigger("create");
+			});
+		</script>
+	</div>
+</body>
+</html>
+

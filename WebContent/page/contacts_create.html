@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="width=device-width, minimum-scale=1, maximum-scale=1"
+	name="viewport" charset="UTF-8">
+<title>PhoneGap</title>
+</head>
+<body>
+	<div data-role="page" id="form-page">
+		<div data-role="header" data-position="fixed">
+			<a href="contacts.html" data-icon="delete">Cancel</a>
+
+			<h1>Add Contact</h1>
+
+			<a onclick="return saveContact()" href="#" data-icon="check"
+				data-theme="b">Save</a>
+		</div>
+
+		<form action="form.html" method="post">
+			<input type="hidden" name="id" value="0">
+
+			<table>
+				<tr>
+					<td>Display Name</td>
+					<td><input type="text" name="displayName" value=""></td>
+				</tr>
+
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" name="firstName" value=""></td>
+				</tr>
+
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" name="lastName" value=""></td>
+				</tr>
+
+				<tr>
+					<td>Email (Home)</td>
+					<td><input type="text" name="email_home" value=""></td>
+				</tr>
+
+				<tr>
+					<td>Email (Work)</td>
+					<td><input type="text" name="email_work" value=""></td>
+				</tr>
+
+				<tr>
+					<td>Email (Other)</td>
+					<td><input type="text" name="email_other" value=""></td>
+				</tr>
+
+				<tr>
+					<td>Phone (Home)</td>
+					<td><input type="text" name="phone_home" value=""></td>
+				</tr>
+
+				<tr>
+					<td>Phone (Work)</td>
+					<td><input type="text" name="phone_work" value=""></td>
+				</tr>
+
+				<tr>
+					<td>Phone (Other)</td>
+					<td><input type="text" name="phone_other" value=""></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
+

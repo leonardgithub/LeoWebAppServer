@@ -1,0 +1,115 @@
+<meta
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+	name="viewport">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<div data-role="page" id="leo_register_page" data-dom-cache="true">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<h1>注册</h1>
+	</div>
+
+	<div data-role="content">
+
+		<div data-role="fieldcontain">
+			账号 <input name="register_num" id="register_num" maxlength="15"/>
+		</div>
+		<div data-role="fieldcontain">
+			昵称 <input name="register_nickname" id="register_nickname" value=""  maxlength="15"/>
+		</div>
+		<div data-role="fieldcontain">
+			密码 <input type="password" name="register_pwd" id="register_pwd"  maxlength="15"
+				value="" />
+		</div>
+		<div data-role="fieldcontain">
+			密码确认 <input type="password" name="register_pwd_confirm" id="register_pwd_confirm" maxlength="15"
+				value="" />
+		</div>
+		<fieldset class="ui-grid-a">
+			<div class="ui-block-a">
+				<a href="#" onclick="leo.register.sendRegister()" data-role="button">提交注册</a>
+			</div>
+			<div class="ui-block-b">
+				<a href="register_cancel_confirm.html" data-rel="dialog" data-role="button">取消注册</a>
+			</div>
+		</fieldset>
+	</div>
+	<!-- end of jqm content -->
+
+	<script>
+		leo.Register = function() {
+			var esto = this;
+			esto.clearRegisterData = function() {
+				document.getElementById('register_num').value = '';
+				document.getElementById('register_nickname').value = '';
+				document.getElementById('register_pwd').value = '';
+				document.getElementById('register_pwd_confirm').value = '';
+			}
+			esto.sendRegister = function() {
+				if (!esto.validateRegister()) {
+					return;
+				}
+				$.ajax({
+					type : 'post',
+					url : leo.config.strategy.getRegisterPath() + "?register_num="
+							+ $('#register_num').val() + "&register_pwd="
+							+ $('#register_pwd').val() + "&register_nickname="
+							+ $('#register_nickname').val(),
+					success : function(e) {
+						if (e != null && e.registerResult != null) {
+							if (e.res != null && e.res != '') {
+								leo.util.alert(e.res, function(){
+									if (e.registerResult == '1') {
+										leo.leoLogin.clearLoginData();
+										$('#num').val($('#register_num').val());
+										esto.clearRegisterData();
+										leo.leoLogin.canGoToLoginPage = true;
+										leo.imFriend.goToJqmPage('login-page');
+										//leo.imFriend.redirectPage('index.html');
+									} else {
+									}
+								});
+							}
+						}
+					},
+					error : function() {
+						leo.util.alertError();
+					}
+				});
+			}
+			esto.validateRegister = function() {
+				var num = $('#register_num').val();
+				var pwd = $('#register_pwd').val();
+				var pwdConfirm = $('#register_pwd_confirm').val();
+				var nickname = $('#register_nickname').val();
+				if (num == '' || pwd == '' || nickname == '' || pwdConfirm == '') {
+					leo.util.alert("用户名,密码,昵称必填");
+					return false;
+				}
+				var regexp = /^[a-zA-Z0-9_]+$/;
+				if (!regexp.test(num)) {
+					leo.util.alert("用户名必须为英文字母、数字或下划线");
+					return false;
+				}
+				if (!regexp.test(nickname)) {
+					leo.util.alert("昵称必须为英文字母、数字或下划线");
+					return false;
+				}
+				if (!regexp.test(pwd)) {
+					leo.util.alert("密码必须为英文字母、数字或下划线");
+					return false;
+				}
+				if (!regexp.test(pwdConfirm)) {
+					leo.util.alert("密码必须为英文字母、数字或下划线");
+					return false;
+				}
+				if(pwd != pwdConfirm){
+					leo.util.alert("密码不一致");
+					return false;
+				}
+				return true;
+			}
+		}
+		leo.register = new leo.Register();
+	</script>
+</div>
+<!-- end of jqm page -->

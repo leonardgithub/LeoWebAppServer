@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- 
+<meta>
+ -->
+<!-- not to let the font too small -->
+<meta
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+	name="viewport">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title></title>
+
+<!-- 
+<script src="http://channel.sinaapp.com/api.js"></script>
+ -->
+<!-- 
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+ -->
+
+<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
+
+
+<!-- 
+<script src="http://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+ -->
+<script src="../script/jQuery/jquery-1.9.1.js" charset="utf-8"></script>
+
+<script src="../script/jQuery/jquery.form.js" charset="utf-8"></script>
+
+</head>
+
+<style>
+/*
+body{
+	-webkit-backface-visibility: hidden; 
+}
+*/
+</style>
+<body id="index-body">
+
+	<div data-role="page" id="login-page" data-dom-cache="true">
+		<script type="text/javascript">
+			$(document).on('mobileinit', function() { //must be bound after jQuery.js and before jqm.js
+				//$.mobile.allowCrossDomainPages = true; 
+				$.mobile.page.prototype.options.headerTheme = "b";
+				$.mobile.page.prototype.options.footerTheme = "b";
+				$.mobile.page.prototype.options.backBtnText = "后退";
+				//$.mobile.metaViewportContent = 'width=device-width';
+				//$.mobile.page.prototype.options.domCache = true;
+			});
+			/*
+			function LeoLogin() {
+				this.login = function() {
+					alert(window.leo.config.strategy.getLoginPath());
+					$.post(leo.config.strategy.getLoginPath, function() {
+						alert(123);
+					});
+				}
+			}
+			var leoLogin = new LeoLogin();
+			 */
+		</script>
+
+		<!-- 
+		<script
+			src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"
+			charset="utf-8"></script>
+		-->
+		<script src="../script/jQuery/jquery.mobile-1.3.2.js" charset="utf-8"></script>
+		<script src="../script/leoCommon.js" charset="utf-8"></script>
+		
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<h1>怕不晒</h1>
+		</div>
+		
+		<div data-role="content">
+			<a href="#" id='change-page-btn' style="display: none"></a>
+			<a href="pbs_upload.html" data-role="button">去晒</a>
+		</div>
+		
+		<script>
+			$(window).on('beforeunload', function(e) {
+				return "do you want to leave this page?";
+			});
+			$(window).on('unload', function(e) {
+			});
+
+			if (!window.pbs) {
+				window.pbs = {};
+			}
+		</script>
+	</div>
+	<!-- end of jqm page -->
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/LeoAction"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/LeoEntity"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-ajp-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-annotations-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-client-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-continuation-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-deploy-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-http-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-io-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-jmx-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-jndi-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-overlay-deployer-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-plus-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-policy-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-rewrite-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-security-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-server-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-servlet-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-servlets-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-util-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-webapp-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-websocket-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/jetty-xml-7.4.4.v20110707.jar"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/web server/jetty-distribution-7.4.4.v20110707/jetty-distribution-7.4.4.v20110707/lib/servlet-api-2.5.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/LeoDao"/>
+	<classpathentry kind="lib" path="D:/0.computing/electronic/project_leo/sae-local-1.1.0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title></title>
+</head>
+<body>
+	<div data-role="page" id="imCommonAlert">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<h1>提醒</h1>
+		</div>
+		<div data-role="content">
+			<h3 id="imCommonAlertContent"></h3>
+			<a href="#" data-rel="back" data-role="button">确定</a>
+		</div>
+		<script>
+			document.getElementById('imCommonAlertContent').innerText = leo.util.alertMsg;
+		</script>
+	</div>
+</body>
+</html>
